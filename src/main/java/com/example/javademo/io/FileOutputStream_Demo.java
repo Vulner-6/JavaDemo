@@ -40,7 +40,7 @@ public class FileOutputStream_Demo
     public void writeBytes() throws Exception
     {
         FileOutputStream fos=new FileOutputStream("E:\\Programming\\Projects\\JavaDemo\\src\\main\\java\\com\\example" +
-                "\\javademo\\io\\writeByteResult.txt");
+                "\\javademo\\io\\resource\\writeByteResult.txt");
         fos.write(97);  //97对应的字符是a，输入的是正数，默认查询ascii码
         byte[] bytes={98,99,100,-101,-102};
         fos.write(bytes);  //如果写入的是负数，那么会和后面一个字节组成中文，查询gbk编码
@@ -64,7 +64,7 @@ public class FileOutputStream_Demo
     public void appendBytes() throws Exception
     {
         String fosPath="E:\\Programming\\Projects\\JavaDemo\\src\\main\\java\\com\\example" +
-                "\\javademo\\io\\appendByteResult.txt";
+                "\\javademo\\io\\resource\\appendByteResult.txt";
         FileOutputStream fos=new FileOutputStream(fosPath,true);
         byte[] bytes="又追加了一句\r\n".getBytes();
         fos.write(bytes);

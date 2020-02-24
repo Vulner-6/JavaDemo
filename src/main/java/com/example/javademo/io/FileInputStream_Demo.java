@@ -34,7 +34,8 @@ public class FileInputStream_Demo
      */
     public void readOneByte() throws Exception
     {
-        String readPath="E:\\Programming\\Projects\\JavaDemo\\src\\main\\java\\com\\example\\javademo\\io\\writeByteResult.txt";
+        String readPath="E:\\Programming\\Projects\\JavaDemo\\src\\main\\java\\com\\example\\javademo\\io" +
+                "\\resource\\writeByteResult.txt";
         FileInputStream fis=new FileInputStream(readPath);
         //int read()方法，每次只读取一个字节
         while (true)
@@ -62,7 +63,8 @@ public class FileInputStream_Demo
      */
     public void readMoreBytes() throws Exception
     {
-        String readPath="E:\\Programming\\Projects\\JavaDemo\\src\\main\\java\\com\\example\\javademo\\io\\writeByteResult.txt";
+        String readPath="E:\\Programming\\Projects\\JavaDemo\\src\\main\\java\\com\\example\\javademo\\io" +
+                "\\resource\\writeByteResult.txt";
         FileInputStream fis=new FileInputStream(readPath);
         byte[] bytes=new byte[1024];
         int len=0;
