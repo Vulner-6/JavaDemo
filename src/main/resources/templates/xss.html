@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>XSS攻击测试页面</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+    <h1>没有任何安全过滤的情况</h1>
+    <form method="post">
+        请输入你的名字：<input type="text" id="name" name="name"><br>
+        你好，<span>xxx</span>
+    </form>
+    </body>
+</html>
