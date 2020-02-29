@@ -20,6 +20,7 @@ public class File_Demo
         fd.printPathSeparator();
         fd.printFilePath();
         fd.getFileInfo();
+        fd.judgeFile();
     }
 
     /**
@@ -86,5 +87,40 @@ public class File_Demo
         System.out.println("这是存在的文件夹的大小："+f1.length());
         System.out.println("这是不存在的文件的大小："+f2.length());
 
+    }
+
+    /**
+     * 判断File是否存在 exits()
+     * 判断File是否是个目录  isDirectory()
+     * 判断File是否是个文件  isFile()
+     */
+    public void judgeFile()
+    {
+        File f1=new File("D:\\a\\b\\c.txt");
+        File f2=new File("D:\\V2ray\\config.json");
+        if(f1.exists())
+        {
+            System.out.println("我的电脑中不存在这个路径："+f1.getAbsolutePath());
+            System.out.println("这是一个目录："+f1.isDirectory());
+            System.out.println("这是一个文件："+f1.isFile());
+        }
+        else
+        {
+            System.out.println("我的电脑中不存在这个路径："+f1.getAbsolutePath());
+            System.out.println("这是一个目录："+f1.isDirectory());
+            System.out.println("这是一个文件："+f1.isFile());
+        }
+        if(f2.exists())
+        {
+            System.out.println("我的电脑中存在这个路径："+f2.getAbsolutePath());
+            System.out.println("这是一个目录："+f2.isDirectory());
+            System.out.println("这是一个文件："+f2.isFile());
+        }
+        else
+        {
+            System.out.println("我的电脑中存在这个路径："+f2.getAbsolutePath());
+            System.out.println("这是一个目录："+f2.isDirectory());
+            System.out.println("这是一个文件："+f2.isFile());
+        }
     }
 }
