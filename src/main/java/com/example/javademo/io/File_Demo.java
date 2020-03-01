@@ -1,6 +1,7 @@
 package com.example.javademo.io;
 
 import java.io.File;
+import java.io.IOException;
 
 /**
  * Java把电脑中的文件/文件夹封装成一个File类，因此可以通过File类对文件/文件夹进行操作
@@ -21,6 +22,11 @@ public class File_Demo
         fd.printFilePath();
         fd.getFileInfo();
         fd.judgeFile();
+        fd.createNewFile();
+        fd.useMkdir();
+        fd.deleteFile();
+        fd.listDir();
+        fd.recursive(1);
     }
 
     /**
@@ -122,5 +128,102 @@ public class File_Demo
             System.out.println("这是一个目录："+f2.isDirectory());
             System.out.println("这是一个文件："+f2.isFile());
         }
+    }
+
+    /**
+     * File类的方法：public boolean createNewFile(String path)
+     * 1.只能创建文件
+     * 2.若传入的路径，已经存在该文件，则返回false；否则创建该文件，并返回true;
+     */
+    public void createNewFile()
+    {
+        File file=new File("E:\\Programming\\Projects\\JavaDemo\\src\\main\\java\\com\\example\\javademo\\io\\results" +
+                "\\test.txt");
+        try
+        {
+            boolean result=file.createNewFile();
+            System.out.println("createNewFile创建新文件，是否成功："+result);
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * File类中的 mkdir() 和 mkdirs()
+     * 创建单个空文件夹  mkdir(),若文件夹已经存在，创建失败，返回false；若文件夹不存在，创建成功，返回true;
+     * 创建多个个空文件夹  mkdirs(),若文件夹已经存在，创建失败，返回false；若文件夹不存在，创建成功，返回true;
+     * 若传给File的路径不存在，则全都返回false
+     * 这两个方法只能创建文件夹，不能创建文件！！！
+     */
+    public void useMkdir()
+    {
+        File f1=new File("E:\\Programming\\Projects\\JavaDemo\\src\\main\\java\\com\\example\\javademo\\io\\results" +
+                "\\testMkdir01");
+        System.out.println("mkdir创建单个空文件夹是否成功："+f1.mkdir());
+        File f2=new File("E:\\Programming\\Projects\\JavaDemo\\src\\main\\java\\com\\example\\javademo\\io\\results" +
+                "\\testMkdir02\\testMkdir03");
+        System.out.println("mkdirs()创建多个个空文件夹是否成功："+f2.mkdirs());
+        File f3=new File("E:\\Programming\\Projects\\JavaDemo\\src\\main\\java\\com\\example\\javademo\\io\\results" +
+                "\\testMkdirFile.txt");
+        System.out.println("尝试利用mkdir创建文件，结果估计是文件名命名的文件夹："+f3.mkdir());
+    }
+
+    /**
+     * File类中的delete()方法，删除传入的文件路径指定的文件。
+     * 删除文件，不走回收站，删除需谨慎！！！
+     * 删除成功返回true，否则返回失败。
+     */
+    public void deleteFile()
+    {
+        File file=new File("E:\\Programming\\Projects\\JavaDemo\\src\\main\\java\\com\\example\\javademo\\io\\results" +
+                "\\testMkdirFile.txt");
+        System.out.println("delete()删除传入的指定路径的文件或文件夹，是否成功删除："+file.delete());
+    }
+
+    /**
+     * File类中，还有遍历目录/遍历文件的方法
+     * public String[] list(); 返回一个String[]数组，表示该文件目录下的所有文件夹和文件（包括隐藏起来的文件或文件夹）
+     *   1.若传入的文件目录路径不存在，则抛出空指针异常！
+     *   2.若传入的不是文件目录，也会抛出空指针异常；
+     * public String[]
+     */
+    public void listDir()
+    {
+        File file=new File("E:\\Programming\\Projects\\JavaDemo\\src\\main\\java\\com\\example\\javademo\\io\\results");
+        String[] allFiles=file.list();
+        for(String fileName:allFiles)
+        {
+            System.out.println("遍历出来的文件或文件夹："+fileName);
+        }
+
+        File[] files=file.listFiles();
+        for(File f:files)
+        {
+            System.out.println("获取到的File类的相对路径："+f.getPath());
+        }
+    }
+
+    /**
+     * 递归
+     *     直接递归：方法中调用自己方法
+     *     间接递归：方法中调用其他方法
+     * 递归有一定的次数限制，次数太多，就会导致内存堆栈溢出。因此使用递归的时候，一定要在一定次数内，让递归停下来；
+     * 构造方法中，禁止使用递归，个人认为会导致无限循环。
+     */
+    public void recursive(Integer i)
+    {
+        System.out.println("第"+i+"次递归");
+        Integer tempNum=i+1;
+        if(tempNum<500)
+        {
+            recursive(tempNum);
+        }
+        else
+        {
+            System.out.println("停下递归了，此时已经递归了"+tempNum+"次数");
+        }
+
     }
 }
