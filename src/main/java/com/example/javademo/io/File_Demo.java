@@ -27,6 +27,8 @@ public class File_Demo
         fd.deleteFile();
         fd.listDir();
         fd.recursive(1);
+        fd.recursiveSum(1,0);
+        fd.recursiveMultiplication(1,3,1);
     }
 
     /**
@@ -224,6 +226,44 @@ public class File_Demo
         {
             System.out.println("停下递归了，此时已经递归了"+tempNum+"次数");
         }
+    }
 
+    /**
+     * 练习：递归计算1-100的和
+     * @param num
+     * @param sum
+     */
+    public void recursiveSum(Integer num,Integer sum)
+    {
+        if(num==101)
+        {
+            System.out.println("递归计算1-100的和为："+sum);
+        }
+        else
+        {
+            sum=sum+num;
+            num=num+1;
+            recursiveSum(num,sum);
+        }
+    }
+
+    /**
+     * 练习：使用递归计算阶乘
+     * @param start
+     * @param stop
+     * @param result
+     */
+    public void recursiveMultiplication(Integer start,Integer stop,Integer result)
+    {
+        if(start==(stop+1))
+        {
+            System.out.println("阶乘的结果为："+result);
+        }
+        else
+        {
+            result=result*start;
+            start=start+1;
+            recursiveMultiplication(start,stop,result);
+        }
     }
 }
