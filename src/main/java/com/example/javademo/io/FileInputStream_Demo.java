@@ -44,6 +44,7 @@ public class FileInputStream_Demo
             if(result==-1)
             {
                 System.out.println("文件读取结束，因为read()返回值为-1");
+                fis.close();
                 break;
             }
             else

@@ -34,7 +34,7 @@ public class FileOutputStream_Demo
     }
 
     /**
-     * 写入一个字节到指定路径,如果已经有了该文件，就会覆盖重写
+     * 写入一个字节/多个字节到指定路径,如果已经有了该文件，就会覆盖重写
      * @throws Exception
      */
     public void writeBytes() throws Exception
