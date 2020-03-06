@@ -13,6 +13,11 @@ public class BufferedWriter_Demo
         bwd.bufferedWriterUse(fw);
     }
 
+    /**
+     * 写入字符串到指定文本文件
+     * @param fw
+     * @throws Exception
+     */
     public void bufferedWriterUse(FileWriter fw) throws Exception
     {
         BufferedWriter bw=new BufferedWriter(fw);
