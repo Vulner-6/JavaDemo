@@ -9,6 +9,7 @@ import java.net.Socket;
  * TCP服务端
  * ServerSocket类
  *   构造方法：ServerSocket serverSocket=new ServerSocket(int port);
+ *   我不知道为什么不能用while循环一直读取网络字节输入流的内容。一旦这么做，就会导致服务端的输出流无法传递到客户端。
  */
 public class TcpServer
 {
